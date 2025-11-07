@@ -15,20 +15,31 @@
 ## 🚀 Quick Installation
 
 ```bash
-cd /home/badhon/Desktop/task
+# Clone the repository
+git clone https://github.com/Tuhinbadhon/Sahaj_mobile_php_task
+cd Sahaj_mobile_php_task
+
+# Install dependencies
 composer install
+
+# Setup environment
 cp .env.example .env
 php artisan key:generate
+
+# Create directories & set permissions
 mkdir -p storage/framework/{sessions,views,cache} storage/logs
 chmod -R 775 storage bootstrap/cache
+
+# Start server
 php artisan serve
+
 # Open: http://127.0.0.1:8000
 ```
 
 ## 📋 Requirements
 
 - PHP >= 8.1
-- Composer  
+- Composer
 - Laravel 11.x
 
 ## 📖 Usage
@@ -41,21 +52,21 @@ php artisan serve
 
 ## 📊 Data Columns
 
-| Column | Description |
-|--------|-------------|
-| ID | Customer identifier |
-| Originate Date | EMI start date |
-| Duration | Payment period |
-| Package | Phone model |
-| Applicant | Customer name |
-| Telephone | Phone number |
-| Shop Name | Location |
-| Total Amount | Full price (৳) |
-| Installment | Monthly payment (৳) |
-| Paid | Amount paid (৳) |
-| Due | Balance (৳) |
-| Last Payment | Payment date |
-| Status | 🟢🟡🔴🔵⚫ |
+| Column         | Description         |
+| -------------- | ------------------- |
+| ID             | Customer identifier |
+| Originate Date | EMI start date      |
+| Duration       | Payment period      |
+| Package        | Phone model         |
+| Applicant      | Customer name       |
+| Telephone      | Phone number        |
+| Shop Name      | Location            |
+| Total Amount   | Full price (৳)      |
+| Installment    | Monthly payment (৳) |
+| Paid           | Amount paid (৳)     |
+| Due            | Balance (৳)         |
+| Last Payment   | Payment date        |
+| Status         | 🟢🟡🔴🔵⚫          |
 
 **Status**: �� Active | 🟡 Pending | 🔴 Overdue | 🔵 Completed | ⚫ Rejected
 
@@ -64,7 +75,7 @@ php artisan serve
 ```
 task/
 ├── app/Http/Controllers/CustomerController.php  # Main logic
-├── routes/web.php                               # Routes  
+├── routes/web.php                               # Routes
 ├── resources/views/dashboard.blade.php          # UI
 ├── storage/data/OUTPUT.json                     # 50+ records
 └── public/css/dashboard.css                     # Styles
@@ -79,6 +90,7 @@ task/
 ## 🎨 Customization
 
 **Default page size** (`CustomerController.php` line 79):
+
 ```php
 $perPage = (int)$request->get('per_page', 25);
 ```
@@ -89,27 +101,32 @@ $perPage = (int)$request->get('per_page', 25);
 ## 🐛 Troubleshooting
 
 **Server won't start**
+
 ```bash
 php -v && php artisan cache:clear && php artisan serve
 ```
 
 **No data**
+
 ```bash
 ls -la storage/data/OUTPUT.json
 chmod 664 storage/data/OUTPUT.json
 ```
 
 **Permissions**
+
 ```bash
 chmod -R 775 storage bootstrap/cache
 ```
 
 **CSV issues**
+
 ```bash
 php artisan route:list | grep export
 ```
 
 **500 error**
+
 ```bash
 # .env: APP_DEBUG=true
 tail -f storage/logs/laravel.log
@@ -122,6 +139,7 @@ tail -f storage/logs/laravel.log
 **Distribution**: Active 35% | Pending 15% | Overdue 20% | Completed 20% | Rejected 10%
 
 **Example**:
+
 ```json
 {
   "id": 1234,
@@ -163,18 +181,6 @@ php artisan route:list     # Routes
 composer dump-autoload     # Reload
 ```
 
-## 📝 Why No Database?
-
-⚡ Fast setup | 🎯 Simple | 🧪 Prototype-ready | 📦 Portable
-
-## 🔮 Future
-
-- [ ] MySQL support
-- [ ] Authentication
-- [ ] Roles & permissions
-- [ ] Payment gateway
-- [ ] SMS alerts
-- [ ] Mobile app
 
 ## 📄 License
 
@@ -185,4 +191,5 @@ composer dump-autoload     # Reload
 **💡 Help**: Check logs (`tail -f storage/logs/laravel.log`) | F12 Console | `php -v`
 
 **Created with ❤️ for Sahaj Mobile**
+
 # Sahaj_mobile_php_task
