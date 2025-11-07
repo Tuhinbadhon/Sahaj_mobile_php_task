@@ -22,10 +22,6 @@ cd Sahaj_mobile_php_task
 # Install dependencies
 composer install
 
-# Setup environment
-cp .env.example .env
-php artisan key:generate
-
 # Create directories & set permissions
 mkdir -p storage/framework/{sessions,views,cache} storage/logs
 chmod -R 775 storage bootstrap/cache
@@ -36,6 +32,17 @@ php artisan serve
 # Open: http://127.0.0.1:8000
 ```
 
+> **Note**: The `.env` file is included in the repository for easy setup. Just clone and run!
+> chmod -R 775 storage bootstrap/cache
+
+# Start server
+
+php artisan serve
+
+# Open: http://127.0.0.1:8000
+
+```
+
 ## 📋 Requirements
 
 - PHP >= 8.1
@@ -44,10 +51,10 @@ php artisan serve
 
 ## 📖 Usage
 
-**Search**: Enter name/phone → Click "Search"  
-**Filter**: Select status dropdown  
-**Sort**: Click column headers  
-**Paginate**: Choose records per page  
+**Search**: Enter name/phone → Click "Search"
+**Filter**: Select status dropdown
+**Sort**: Click column headers
+**Paginate**: Choose records per page
 **Export**: Click "Export All to CSV"
 
 ## 📊 Data Columns
@@ -73,13 +80,15 @@ php artisan serve
 ## 🔧 Structure
 
 ```
+
 task/
-├── app/Http/Controllers/CustomerController.php  # Main logic
-├── routes/web.php                               # Routes
-├── resources/views/dashboard.blade.php          # UI
-├── storage/data/OUTPUT.json                     # 50+ records
-└── public/css/dashboard.css                     # Styles
-```
+├── app/Http/Controllers/CustomerController.php # Main logic
+├── routes/web.php # Routes
+├── resources/views/dashboard.blade.php # UI
+├── storage/data/OUTPUT.json # 50+ records
+└── public/css/dashboard.css # Styles
+
+````
 
 ## 💻 Technology
 
@@ -93,7 +102,7 @@ task/
 
 ```php
 $perPage = (int)$request->get('per_page', 25);
-```
+````
 
 **Add data**: Edit `storage/data/OUTPUT.json`  
 **Branding**: Edit `.env` → `APP_NAME="Your Company"`
@@ -180,7 +189,6 @@ php artisan cache:clear    # Clear cache
 php artisan route:list     # Routes
 composer dump-autoload     # Reload
 ```
-
 
 ## 📄 License
 

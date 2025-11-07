@@ -1,6 +1,5 @@
 /vendor/
 /node_modules/
-/.env
 /bootstrap/cache/*
 !/bootstrap/cache/.gitkeep
 /storage/*.key
