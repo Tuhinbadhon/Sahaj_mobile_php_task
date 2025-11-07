@@ -1,0 +1,9 @@
+{
+  "page": 1,
+  "per_page": 50,
+  "shop_id": 123,
+  "status": "all",
+  "search": "",
+  "sort_by": "originate_date",
+  "sort_order": "desc"
+}
